@@ -1,0 +1,2 @@
+int x= "bool"
+ int z =3
