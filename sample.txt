@@ -1,2 +1,8 @@
 int x= "bool"
- int z =3
+string z =3
+
+for( int i=0;i<n;i++){
+    int x = 3 ; 
+    1+5 ;
+    i++''
+}

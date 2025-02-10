@@ -63,12 +63,14 @@ class Lexer{
             }
 
             while(!isspace(current) && !search(operators,current) && !search(specials,current)){
+                
                 lexeme += current;
                 pos++;
                 current = l_input[pos];
             }
             
             result.lexeme = lexeme;
+            int size = lexeme.size();
 
             bool option = isalpha(lexeme[0]) || (lexeme[0] == '_') ? true : false;
 
@@ -98,13 +100,13 @@ class Lexer{
                     break;
 
                     case 2 :
-                        if( lexeme[lexeme.size()-1] == '\'' && lexeme.size() == 3) 
+                        if( lexeme[size-1] == '\'' && (size == 3 || size==2)) 
                             result.name = letter;
                         else result.name = invalid;
                     break;
 
                     case 3 : 
-                        if( lexeme[lexeme.size()-1] == '"')
+                        if( lexeme[size-1] == '"')
                             result.name = word;
                         else result.name = invalid;
                     break;
@@ -113,7 +115,7 @@ class Lexer{
  
                 }
                 if(result.name == type:: invalid ){
-                    cout << endl << "syntax wrong at char : " << pos - lexeme.size() + 2 << endl;
+                    cout << endl << "syntax wrong at char : " << pos - size + 2 << endl;
                 }
                 return result;
             } 
@@ -123,6 +125,8 @@ class Lexer{
 
         }
 };
+
+
 
 
 
